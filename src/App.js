@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import "./Data.js";
+import data from "./Data.js";
 const axios = require('axios');
 
 
 
 
 function App() {
-  const [data, setData] = useState();
-  useEffect(() => {
-    const fetchData = () => {
-      axios
-        .get("https://api.nasa.gov/planetary/apod")
-        .then(res => setData(res.data));
-    };
-
-    fetchData();
-  }, []);
-  console.log(data)
+  console.log(data("2020-08-18"));
   return (
     <div className="App">
 
