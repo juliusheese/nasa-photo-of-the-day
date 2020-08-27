@@ -27,7 +27,15 @@
 .App-link {
   color: #61dafb;
 }
+.img {
+  align-items: center;
+  max-width: 75vmax;
+  max-height: 75vmax;
 
+}
+p,h5, h3 {
+  margin: 3vmax;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

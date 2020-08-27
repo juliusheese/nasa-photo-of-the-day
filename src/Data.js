@@ -3,19 +3,18 @@ import "./App.css";
 import "./Data.js";
 const axios = require('axios');
 
-function Data(d) {
-    const [data, setData] = useState();
-    const [query, setQuery] = useState(d);
-
+function Data() {
+    const [D, setD] = useState(["Loading...", "Loading...", "Loading...", "Loading...", "Loading...", "Loading...", "Loading...", "Loading...", "Loading...", "Loading...", "Loading..."]);
+    const [date, setDate] = useState("2020-08-24")
     useEffect(() => {
-        const fetchData = () => {
-            axios
-                .get("https://api.nasa.gov/planetary/apod?api_key=dRFn6isk4LoBjKHGjYAGfz8yYtLaYI5ZwmL7Opc0&date=" + query)
-                .then(res => setData(res.data));
-        };
-        fetchData();
-        return fetchData();
-    }, []);
-    return console.log(data)
+        axios
+            .get("https://api.nasa.gov/planetary/apod?api_key=dRFn6isk4LoBjKHGjYAGfz8yYtLaYI5ZwmL7Opc0&date=" + date)
+            .then(res => setD(Object.values(Object.values(res)[0])))
+            .catch(function (error) {
+                console.log(error, "Error in fetching market updates")
+            });
+    }, [date]);
+    ;
+    return D;
 }
 export default Data;

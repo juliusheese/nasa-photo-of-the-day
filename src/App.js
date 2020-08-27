@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import data from "./Data.js";
-const axios = require('axios');
-
+import Data from "./Data.js"
+import Cal from "./Cal.js"
 
 
 
 function App() {
-  console.log(data("2020-08-18"));
+  const D = Data("2020-08-24");
+  console.log(D)
   return (
     <div className="App">
+      <h3>{D[0]}</h3>
+      <h3>{D[6]}</h3>
+      <h3>{D[1]}</h3>
+      <div > <img className="img" src={D[3]} /></div>
+      <h5> <div>
 
+        <Cal
+        />
+
+      </div></h5>
       <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
+        {D[2]}
       </p>
     </div>
   );
